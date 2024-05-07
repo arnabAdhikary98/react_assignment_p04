@@ -19,6 +19,7 @@
 
     let rootEle = document.getElementById('root')
 
+    // created a object for styling the div container in which the images will go
     const divStyle = {
         height : "300px",
         width : '100%',
@@ -27,6 +28,7 @@
         textAlign : 'center',
     }
 
+    // creating and component called Gallery with children prop called image
     function Gallery({image}) {
         return (
             image.map((ele, i) => (
@@ -37,6 +39,7 @@
         )
     }
 
+    // made an array of links of the images
     let images = [
         "./img/image_01.jpg",
         "./img/image_02.jpg",
@@ -46,13 +49,14 @@
         "./img/image_01.jpg"
     ]
 
-
+    
     let ele = (
         <div style={divStyle}>
         <Gallery image={images} />
         </div>
     )
 
+    //creating the Root and rendering in to the DOM
     ReactDOM.createRoot(rootEle).render(ele)
 
 </script>
