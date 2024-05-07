@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic List Rendering</title>
+
+</head>
+<body>
+
+  <div id="root"></div>
+
+</body>
+<script src="https://www.unpkg.com/react@18.2.0/umd/react.development.js"></script>
+<script src="https://www.unpkg.com/react-dom@18.2.0/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+
+    let rootEle = document.getElementById('root')
+
+    const divStyle = {
+        height : "300px",
+        width : '100%',
+        display : 'grid',
+        gridTemplateColumns : "repeat(3, 1fr)",
+        textAlign : 'center',
+    }
+
+    function Gallery({image}) {
+        return (
+            image.map((ele, i) => (
+                <div style={{border : "1px solid black", padding: '5px'}}>
+                    <img style={{height: '100%', width: '100%'}} src={ele}/>
+                    </div>
+            ))
+        )
+    }
+
+    let images = [
+        "./img/image_01.jpg",
+        "./img/image_02.jpg",
+        "./img/image_03.jpg",
+        "./img/image_04.jpg",
+        "./img/image_05.jpg",
+        "./img/image_01.jpg"
+    ]
+
+
+    let ele = (
+        <div style={divStyle}>
+        <Gallery image={images} />
+        </div>
+    )
+
+    ReactDOM.createRoot(rootEle).render(ele)
+
+</script>
+</html>
